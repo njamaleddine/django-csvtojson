@@ -43,5 +43,5 @@ The primary key to start from. If you already have models in the database table 
 `create_json("users", "user", "test.csv")`
 
 
-###Examples:
+###Example input and output files:
 See `test.csv` and `test.json`
