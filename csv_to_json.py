@@ -58,7 +58,7 @@ def create_json (app_name, model_name, csv_file_name, json_output_file_name=None
     for row in reader:
         row_count += 1
 
-        # Read rows
+        # Populate fields with field data
         for field_name in reader.fieldnames:
             fields[field_name] = row[field_name]
 
