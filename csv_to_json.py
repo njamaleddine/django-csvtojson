@@ -31,7 +31,7 @@ def create_json (app_name, model_name, csv_file_name, json_output_file_name=None
     if primary_key_start_value == None:
         primary_key_start_value = 0
     else:
-        primary_key_start_value = abs(int(primary_key_start_value) - 1)
+        primary_key_start_value = abs(int(primary_key_start_value)) - 1
 
     # Get user input for reading in the csv file
     csv_file_name = str(csv_file_name)
