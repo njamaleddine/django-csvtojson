@@ -7,29 +7,41 @@ Nabil Jamaleddine
 import csv
 import json
 
-def convert_csv_boolean (boolean):
-    """ Convert String booleans from csv to a Python boolean """
-    if boolean.lower() == "true":
+def test ():
+    print "HELLO WORLD"
+
+def validate_field (value):
+    """
+    Convert String booleans from csv to a Python boolean
+
+    Passes back value for all other data types
+    """
+    if value.lower() == "true":
         return True
 
-    elif boolean.lower() == "false":
+    elif value.lower() == "false":
         return False
-    pass
 
-def create_json (app_name, model_name, csv_file_name, primary_key_start_value):
+    return value
+
+def create_json (app_name, model_name, csv_file_name, json_output_file_name=None, primary_key_start_value=None):
     """ Create the json objects """
     # Initialize the json model
     app_name = str(app_name)
     model_name = str(model_name)
-    primary_key_start_value = abs(int(primary_key_start_value) - 1)
     row_count = 0
 
     if primary_key_start_value == None:
         primary_key_start_value = 0
+    else:
+        primary_key_start_value = abs(int(primary_key_start_value) - 1)
 
     # Get user input for reading in the csv file
     csv_file_name = str(csv_file_name)
-    json_file_name = csv_file_name.split(".")[0] + ".json"
+    if json_output_file_name == None:
+        json_file_name = csv_file_name.split(".")[0] + ".json"
+    else:
+        json_file_name = json_output_file_name
 
     # Read the csv file and write to the json file
     csv_file = open(csv_file_name, 'r')
@@ -38,19 +50,21 @@ def create_json (app_name, model_name, csv_file_name, primary_key_start_value):
     # Count the number of lines in the file (exclude the header row)
     numline = len(csv_file.readlines()) - 1
 
-    # # reread the file
-    # csv_file = open(csv_file_name, 'r')
+    # reread the file
+    csv_file = open(csv_file_name, 'r')
+    reader = csv.DictReader(csv_file, skipinitialspace=True)
+
+    # Initialize fields dictionary
+    fields = {}
 
     # Create each json object for the csv
-    for row in csv.DictReader(csv_file):
+    for row in reader:
         row_count += 1
 
         # Read rows
-        fields = {
-            "name": row["name"],
-            "is_graduate_school": convert_csv_boolean(row["is_graduate_school"]),
-            "is_other": convert_csv_boolean(row["is_other"])
-        }
+        for field_name in reader.fieldnames:
+            fields[field_name] = row[field_name]
+            print field_name
 
         row_insert = {
             "model": "{0}.{1}".format(app_name, model_name),
