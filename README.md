@@ -31,13 +31,17 @@ The name of the Django model.
 The csv input file name
 
 
-`json_output_file_name`:
-The json output file name. Defaults to the csv_file_name with a json file extension (Optional)
+`json_output_file_name` **(Optional)**:
+The JSON output file name. Defaults to the csv_file_name with a JSON file extension
 
 
-`primary_key_start_value`:
+`primary_key_start_value` **(Optional)**:
 The primary key to start from. If you already have models in the database table you can offset the first primary key to begin at another value. Default value = 1.
 
 
-###Ex Usage:
+###Example Usage:
 `create_json("users", "user", "test.csv")`
+
+
+###Examples:
+See `test.csv` and `test.json`
