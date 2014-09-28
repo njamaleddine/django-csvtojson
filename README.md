@@ -1,14 +1,14 @@
 django-csvtojson
 ==================
 
-###Django CSV to JSON converter.
+###A CSV to Django initial_data JSON converter.
 
 Generates an initial_data.json from a csv file for use with Django migrations.
 
-Simplifies data entry for entering a large quantity of models to your database tables into your Django app.
+Simplifies data entry for entering a large quantity of objects to your Django app models.
 
 
-No installation needed, just run the script with a few parameters and a formatted csv.
+No installation necessary, just run the script with a few parameters and a formatted csv.
 
 ###Using the script from the command line:
 

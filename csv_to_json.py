@@ -64,7 +64,6 @@ def create_json (app_name, model_name, csv_file_name, json_output_file_name=None
         # Read rows
         for field_name in reader.fieldnames:
             fields[field_name] = row[field_name]
-            print field_name
 
         row_insert = {
             "model": "{0}.{1}".format(app_name, model_name),
