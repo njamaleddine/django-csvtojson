@@ -7,9 +7,6 @@ Nabil Jamaleddine
 import csv
 import json
 
-def test ():
-    print "HELLO WORLD"
-
 def validate_field (value):
     """
     Convert String booleans from csv to a Python boolean
