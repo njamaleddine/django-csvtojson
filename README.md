@@ -7,8 +7,12 @@ Generates an initial_data.json from a csv file for use with Django migrations.
 
 Simplifies data entry for entering a large quantity of objects to your Django app models.
 
-
 No installation necessary, just run the script with a few parameters and a formatted csv.
+
+
+**Note**
+
+At this time django-csvtojson does not support creating foreign key relations with other models.
 
 ###Using the script from the command line:
 
