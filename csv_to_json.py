@@ -6,18 +6,30 @@ Nabil Jamaleddine
 """
 import csv
 import json
+import time
+import datetime
+import re
 
 def validate_field (value):
     """
-    Convert String booleans from csv to a Python boolean
+    Validates major data types using regular expression matching.
 
-    Passes back value for all other data types
+    Converts String booleans from a csv to Python boolean values
+
+    Also converts integer, and float values
     """
+
     if value.lower() == "true":
         return True
 
     elif value.lower() == "false":
         return False
+
+    elif re.match(r"\d+$", value):
+        return int(value)
+
+    elif re.match(r"[-+]?\d+\.\d+$", value):
+        return float(value)
 
     return value
 
@@ -60,7 +72,7 @@ def create_json (app_name, model_name, csv_file_name, json_output_file_name=None
 
         # Populate fields with field data
         for field_name in reader.fieldnames:
-            fields[field_name] = row[field_name]
+            fields[field_name] = validate_field(row[field_name])
 
         row_insert = {
             "model": "{0}.{1}".format(app_name, model_name),

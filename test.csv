@@ -1,6 +1,6 @@
-first_name,last_name,age,major
-Bill,Smith,21,English
-Bob,Williams,22,Mathematics
-Jane,Smith,51,Biology
-Laura,Simpson,34,Biology
-Ada,L.,51,Computer Science
+first_name,last_name,age,major,gpa,is_active,date_joined
+Bill,Smith,21,English,3.3,TRUE,09/28/14
+Bob,Williams,22,Mathematics,3.1,TRUE,09/28/14
+Jane,Smith,51,Biology,3.6,TRUE,09/28/14
+Laura,Simpson,34,Biology,2.9,FALSE,09/28/14
+Ada,L.,51,Computer Science,3.4,TRUE,09/28/14
