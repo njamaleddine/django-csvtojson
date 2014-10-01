@@ -2,7 +2,7 @@
 Django CSV to JSON converter.
 Used for populating an initial_data.json for Django's Migrations
 
-Nabil Jamaleddine
+Author: Nabil Jamaleddine
 """
 import csv
 import json
