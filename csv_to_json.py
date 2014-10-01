@@ -1,6 +1,6 @@
 """
 Django CSV to JSON converter.
-Best used for populating an initial_data.json for Django's Migrations
+Used for populating an initial_data.json for Django's Migrations
 
 Nabil Jamaleddine
 """
