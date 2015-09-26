@@ -5,6 +5,7 @@ Used for populating an initial_data.json for Django's Migrations
 
 Author: Nabil Jamaleddine
 """
+from __future__ import print_function
 import csv
 import json
 import re
@@ -80,7 +81,7 @@ def create_json(app_name, model_name, csv_file_name, json_output_file_name=None,
             "fields": fields
         }
 
-        print row_insert
+        print(row_insert)
 
         json.dump(row_insert, json_file, sort_keys=False, indent=4)
 
