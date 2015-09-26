@@ -1,7 +1,6 @@
-django-csvtojson
-==================
+# django-csvtojson
 
-###A CSV to Django initial_data JSON converter.
+### A CSV to Django initial_data JSON converter.
 
 Generates an initial_data.json from a csv file for use with Django migrations.
 
@@ -14,7 +13,7 @@ No installation necessary, just run the script with a few parameters and a forma
 
 At this time django-csvtojson does not support creating foreign key relations with other models.
 
-###Using the script from the command line:
+### Using the script from the command line:
 
 `>>> python`
 
@@ -22,7 +21,7 @@ At this time django-csvtojson does not support creating foreign key relations wi
 
 `>>> create_json(app_name, model_name, csv_file_name, json_output_file_name, primary_key_start_value)`
 
-###Parameters:
+### Parameters:
 `app name`:
 The name of the app that the django model is located in.
 
@@ -43,9 +42,9 @@ The JSON output file name. Defaults to the csv_file_name with a JSON file extens
 The primary key to start from. If you already have models in the database table you can offset the first primary key to begin at another value. Default value = 1.
 
 
-###Example Usage:
+### Example Usage:
 `create_json("users", "user", "test.csv")`
 
 
-###Example input and output files:
+### Example input and output files:
 See `test.csv` and `test.json`

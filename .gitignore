@@ -1,1 +1,7 @@
 *.pyc
+*pid
+.DS_Store
+.coverage
+coverage_report
+coverage.xml
+Session.vim

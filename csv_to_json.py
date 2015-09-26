@@ -1,16 +1,16 @@
 """
-Django CSV to JSON converter.
+Django CSV file to JSON converter.
+
 Used for populating an initial_data.json for Django's Migrations
 
 Author: Nabil Jamaleddine
 """
 import csv
 import json
-import time
-import datetime
 import re
 
-def validate_field (value):
+
+def validate_field(value):
     """
     Validates major data types using regular expression matching.
 
@@ -33,22 +33,22 @@ def validate_field (value):
 
     return value
 
-def create_json (app_name, model_name, csv_file_name, json_output_file_name=None, primary_key_start_value=None):
+
+def create_json(app_name, model_name, csv_file_name, json_output_file_name=None, primary_key_start_value=None):
     """ Create the json objects """
-    # Initialize the json model
     app_name = str(app_name)
     model_name = str(model_name)
     row_count = 0
 
-    if primary_key_start_value == None:
+    if primary_key_start_value is None:
         primary_key_start_value = 0
     else:
         primary_key_start_value = abs(int(primary_key_start_value)) - 1
 
     # Get user input for reading in the csv file
     csv_file_name = str(csv_file_name)
-    if json_output_file_name == None:
-        json_file_name = csv_file_name.split(".")[0] + ".json"
+    if json_output_file_name is None:
+        json_file_name = '{}.{}'.format(csv_file_name.split(".")[0], "json")
     else:
         json_file_name = json_output_file_name
 
