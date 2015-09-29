@@ -36,10 +36,9 @@ def validate_field(value):
 
 
 def create_json(app_name, model_name, csv_file_name, json_output_file_name=None, primary_key_start_value=None):
-    """ Create the json objects """
+    """ Create array of json from csv """
     app_name = str(app_name)
     model_name = str(model_name)
-    row_count = 0
 
     if primary_key_start_value is None:
         primary_key_start_value = 0
@@ -58,7 +57,7 @@ def create_json(app_name, model_name, csv_file_name, json_output_file_name=None,
     json_file = open(json_file_name, 'w')
 
     # Count the number of lines in the file (exclude the header row)
-    numline = len(csv_file.readlines()) - 1
+    total_rows = len(csv_file.readlines()) - 1
 
     # reread the file
     csv_file = open(csv_file_name, 'r')
@@ -68,16 +67,14 @@ def create_json(app_name, model_name, csv_file_name, json_output_file_name=None,
     fields = {}
 
     # Create each json object for the csv
-    for row in reader:
-        row_count += 1
-
+    for index, row in enumerate(reader):
         # Populate fields with field data
         for field_name in reader.fieldnames:
             fields[field_name] = validate_field(row[field_name])
 
         row_insert = {
             "model": "{0}.{1}".format(app_name, model_name),
-            "pk": primary_key_start_value + row_count,
+            "pk": primary_key_start_value + (index + 1),
             "fields": fields
         }
 
@@ -86,7 +83,7 @@ def create_json(app_name, model_name, csv_file_name, json_output_file_name=None,
         json.dump(row_insert, json_file, sort_keys=False, indent=4)
 
         # End the file without a comma
-        if row_count == numline:
+        if index == total_rows:
             json_file.write('\n')
         else:
             json_file.write(',\n')
