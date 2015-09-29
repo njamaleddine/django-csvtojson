@@ -15,9 +15,9 @@ At this time django-csvtojson does not support creating foreign key relations wi
 ### Using the script from the command line:
 
 ```python
-  from csv_to_json import create_json
+from csv_to_json import create_json
 
-  create_json(app_name, model_name, csv_file_name, json_output_file_name, primary_key_start_value)
+create_json(app_name, model_name, csv_file_name, json_output_file_name, primary_key_start_value)
 ```
 
 ### Parameters:
