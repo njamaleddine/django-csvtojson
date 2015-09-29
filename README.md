@@ -1,17 +1,16 @@
 # django-csvtojson
 
+
 ### A CSV to Django initial_data JSON converter.
 
-Generates an initial_data.json from a csv file for use with Django migrations.
+django-csvtojson Generates an initial_data.json from a csv file for use with Django migrations.
 
-Simplifies data entry for entering a large quantity of objects to your Django app models.
+Simplifies data entry for entering a large quantity of objects to your Django app.
 
-No installation necessary, just run the script with a few parameters and a formatted csv.
-
-
-**Note**
+**Caveats:**
 
 At this time django-csvtojson does not support creating foreign key relations with other models.
+
 
 ### Using the script from the command line:
 
@@ -20,6 +19,7 @@ At this time django-csvtojson does not support creating foreign key relations wi
 `>>> from csv_to_json import create_json`
 
 `>>> create_json(app_name, model_name, csv_file_name, json_output_file_name, primary_key_start_value)`
+
 
 ### Parameters:
 `app name`:
