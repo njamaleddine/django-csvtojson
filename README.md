@@ -42,9 +42,9 @@ The primary key to start from. If you already have models in the database table 
 
 
 ### Example Usage:
-    ```python
-    create_json("users", "user", "test.csv")
-    ```
+```python
+create_json("users", "user", "test.csv")
+```
 
 ### Example input and output files:
 See `test.csv` and `test.json`
