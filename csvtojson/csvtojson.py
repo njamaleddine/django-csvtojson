@@ -66,6 +66,8 @@ def create_json(app_name, model_name, csv_file_name, json_output_file_name=None,
     # Initialize fields dictionary
     fields = {}
 
+    json_file.write('[\n')
+
     # Create each json object for the csv
     for index, row in enumerate(reader):
         # Populate fields with field data
@@ -83,7 +85,9 @@ def create_json(app_name, model_name, csv_file_name, json_output_file_name=None,
         json.dump(row_insert, json_file, sort_keys=False, indent=4)
 
         # End the file without a comma
-        if index == total_rows:
+        if (index + 1) == total_rows:
             json_file.write('\n')
         else:
             json_file.write(',\n')
+
+    json_file.write(']')

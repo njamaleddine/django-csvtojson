@@ -1,65 +1,67 @@
+[
 {
-    "pk": 1, 
-    "model": "users.user", 
     "fields": {
-        "first_name": "Bill", 
-        "last_name": "Smith", 
-        "age": 21, 
-        "is_active": true, 
-        "gpa": 3.3, 
-        "major": "English", 
+        "first_name": "Bill",
+        "age": 21,
+        "gpa": 3.3,
+        "major": "English",
+        "is_active": true,
+        "last_name": "Smith",
         "date_joined": "09/28/14"
-    }
+    },
+    "pk": 1,
+    "model": "users.user"
 },
 {
-    "pk": 2, 
-    "model": "users.user", 
     "fields": {
-        "first_name": "Bob", 
-        "last_name": "Williams", 
-        "age": 22, 
-        "is_active": true, 
-        "gpa": 3.1, 
-        "major": "Mathematics", 
+        "first_name": "Bob",
+        "age": 22,
+        "gpa": 3.1,
+        "major": "Mathematics",
+        "is_active": true,
+        "last_name": "Williams",
         "date_joined": "09/28/14"
-    }
+    },
+    "pk": 2,
+    "model": "users.user"
 },
 {
-    "pk": 3, 
-    "model": "users.user", 
     "fields": {
-        "first_name": "Jane", 
-        "last_name": "Smith", 
-        "age": 51, 
-        "is_active": true, 
-        "gpa": 3.6, 
-        "major": "Biology", 
+        "first_name": "Jane",
+        "age": 51,
+        "gpa": 3.6,
+        "major": "Biology",
+        "is_active": true,
+        "last_name": "Smith",
         "date_joined": "09/28/14"
-    }
+    },
+    "pk": 3,
+    "model": "users.user"
 },
 {
-    "pk": 4, 
-    "model": "users.user", 
     "fields": {
-        "first_name": "Laura", 
-        "last_name": "Simpson", 
-        "age": 34, 
-        "is_active": false, 
-        "gpa": 2.9, 
-        "major": "Biology", 
+        "first_name": "Laura",
+        "age": 34,
+        "gpa": 2.9,
+        "major": "Biology",
+        "is_active": false,
+        "last_name": "Simpson",
         "date_joined": "09/28/14"
-    }
+    },
+    "pk": 4,
+    "model": "users.user"
 },
 {
-    "pk": 5, 
-    "model": "users.user", 
     "fields": {
-        "first_name": "Ada", 
-        "last_name": "L.", 
-        "age": 51, 
-        "is_active": true, 
-        "gpa": 3.4, 
-        "major": "Computer Science", 
+        "first_name": "Ada",
+        "age": 51,
+        "gpa": 3.4,
+        "major": "Computer Science",
+        "is_active": true,
+        "last_name": "L.",
         "date_joined": "09/28/14"
-    }
+    },
+    "pk": 5,
+    "model": "users.user"
 }
+]

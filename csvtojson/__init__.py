@@ -1,4 +1,4 @@
-from csvtojson import create_json
+from .csvtojson import create_json
 
 __title__ = 'Django CSV To JSON'
 __version__ = '0.1.0'
