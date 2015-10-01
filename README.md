@@ -12,6 +12,11 @@ Simplifies data entry for entering a large quantity of objects to your Django ap
 At this time django-csvtojson does not support creating foreign key relations with other models.
 
 
+### Installation:
+```
+pip install --egg git+https://github.com/njamaleddine/django-csvtojson
+```
+
 ### Using the script from the command line:
 
 ```python
