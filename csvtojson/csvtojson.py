@@ -53,41 +53,37 @@ def create_json(app_name, model_name, csv_file_name, json_output_file_name=None,
         json_file_name = json_output_file_name
 
     # Read the csv file and write to the json file
-    csv_file = open(csv_file_name, 'r')
-    json_file = open(json_file_name, 'w')
+    with open(csv_file_name, 'r') as csv_file, open(json_file_name, 'w') as json_file:
+        total_rows = len(csv_file.readlines()) - 1
 
-    # Count the number of lines in the file (exclude the header row)
-    total_rows = len(csv_file.readlines()) - 1
+        # Go back to the beginning of the file
+        csv_file.seek(0)
+        reader = csv.DictReader(csv_file, skipinitialspace=True)
 
-    # reread the file
-    csv_file = open(csv_file_name, 'r')
-    reader = csv.DictReader(csv_file, skipinitialspace=True)
+        fields = {}
 
-    # Initialize fields dictionary
-    fields = {}
+        json_file.write('[\n')
 
-    json_file.write('[\n')
+        # Create each json object for the csv
+        for index, row in enumerate(reader):
+            # Populate fields with field data
+            for field_name in reader.fieldnames:
+                fields[field_name] = validate_field(row[field_name])
 
-    # Create each json object for the csv
-    for index, row in enumerate(reader):
-        # Populate fields with field data
-        for field_name in reader.fieldnames:
-            fields[field_name] = validate_field(row[field_name])
+            row_insert = {
+                "model": "{0}.{1}".format(app_name, model_name),
+                "pk": primary_key_start_value + (index + 1),
+                "fields": fields
+            }
 
-        row_insert = {
-            "model": "{0}.{1}".format(app_name, model_name),
-            "pk": primary_key_start_value + (index + 1),
-            "fields": fields
-        }
+            print(row_insert)
 
-        print(row_insert)
+            json.dump(row_insert, json_file, sort_keys=True, indent=4)
 
-        json.dump(row_insert, json_file, sort_keys=False, indent=4)
+            # End the file without a comma
+            if (index + 1) == total_rows:
+                json_file.write('\n')
+            else:
+                json_file.write(',\n')
 
-        # End the file without a comma
-        if (index + 1) == total_rows:
-            json_file.write('\n')
-        else:
-            json_file.write(',\n')
-
-    json_file.write(']')
+        json_file.write(']')

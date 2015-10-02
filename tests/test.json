@@ -1,67 +1,67 @@
 [
 {
     "fields": {
-        "first_name": "Bill",
         "age": 21,
+        "date_joined": "09/28/14",
+        "first_name": "Bill",
         "gpa": 3.3,
-        "major": "English",
         "is_active": true,
         "last_name": "Smith",
-        "date_joined": "09/28/14"
+        "major": "English"
     },
-    "pk": 1,
-    "model": "users.user"
+    "model": "users.user",
+    "pk": 1
 },
 {
     "fields": {
-        "first_name": "Bob",
         "age": 22,
+        "date_joined": "09/28/14",
+        "first_name": "Bob",
         "gpa": 3.1,
-        "major": "Mathematics",
         "is_active": true,
         "last_name": "Williams",
-        "date_joined": "09/28/14"
+        "major": "Mathematics"
     },
-    "pk": 2,
-    "model": "users.user"
+    "model": "users.user",
+    "pk": 2
 },
 {
     "fields": {
-        "first_name": "Jane",
         "age": 51,
+        "date_joined": "09/28/14",
+        "first_name": "Jane",
         "gpa": 3.6,
-        "major": "Biology",
         "is_active": true,
         "last_name": "Smith",
-        "date_joined": "09/28/14"
+        "major": "Biology"
     },
-    "pk": 3,
-    "model": "users.user"
+    "model": "users.user",
+    "pk": 3
 },
 {
     "fields": {
-        "first_name": "Laura",
         "age": 34,
+        "date_joined": "09/28/14",
+        "first_name": "Laura",
         "gpa": 2.9,
-        "major": "Biology",
         "is_active": false,
         "last_name": "Simpson",
-        "date_joined": "09/28/14"
+        "major": "Biology"
     },
-    "pk": 4,
-    "model": "users.user"
+    "model": "users.user",
+    "pk": 4
 },
 {
     "fields": {
-        "first_name": "Ada",
         "age": 51,
+        "date_joined": "09/28/14",
+        "first_name": "Ada",
         "gpa": 3.4,
-        "major": "Computer Science",
         "is_active": true,
         "last_name": "L.",
-        "date_joined": "09/28/14"
+        "major": "Computer Science"
     },
-    "pk": 5,
-    "model": "users.user"
+    "model": "users.user",
+    "pk": 5
 }
 ]
