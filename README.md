@@ -48,14 +48,14 @@ The primary key to start from. If you already have models in the database table 
 
 ### Example Usage:
 ```python
-create_json("users", "user", "users.csv")
+create_json('custom_user', 'user', 'users.csv')
 ```
 
-##### If the file wasn't generated in the right directory, move/save it to the desired folder.
+If the file wasn't generated in the right directory, move/save it to the desired folder.
 
 ##### Create a blank django migration for the app:
 ```python
-python manage.py makemigrations --empty app_name
+python manage.py makemigrations --empty custom_user
 ```
 
 ##### Write up a django migration to load the fixture data:
@@ -68,13 +68,13 @@ from django.core.management import call_command
 
 
 def load_user_data(apps, schema_editor):
-    call_command("loaddata", "../fixtures/users.json")
+    call_command('loaddata', '../fixtures/users.json')
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('regions', '0001_initial'),
+        ('custom_user', '0001_initial'),
     ]
 
     operations = [
