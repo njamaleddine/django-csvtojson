@@ -3,7 +3,7 @@
 
 ### A CSV to Django initial_data JSON converter.
 
-django-csvtojson Generates an initial_data.json from a csv file for use with Django migrations.
+django-csvtojson Generates an initial_data.json from a csv file to use with Django migrations.
 
 Simplifies data entry for entering a large quantity of objects to your Django app.
 
@@ -48,8 +48,45 @@ The primary key to start from. If you already have models in the database table 
 
 ### Example Usage:
 ```python
-create_json("users", "user", "test.csv")
+create_json("users", "user", "users.csv")
+```
+
+##### If the file wasn't generated in the right directory, move/save it to the desired folder.
+
+##### Create a blank django migration for the app:
+```python
+python manage.py makemigrations --empty app_name
+```
+
+##### Write up a django migration to load the fixture data:
+```python
+
+from __future__ import unicode_literals
+
+from django.db import models, migrations
+from django.core.management import call_command
+
+
+def load_user_data(apps, schema_editor):
+    call_command("loaddata", "../fixtures/users.json")
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('regions', '0001_initial'),
+    ]
+
+    operations = [
+        migrations.RunPython(load_user_data)
+    ]
+
+```
+
+##### Run the django migration to load the new json data into your database:
+```python
+python manage.py migrate
 ```
 
 ### Example input and output files:
-See `test.csv` and `test.json`
+See `tests/test.csv` and `tests/test.json`
